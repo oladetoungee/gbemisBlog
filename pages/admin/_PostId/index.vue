@@ -8,7 +8,7 @@
 <script>
 import AdminPostForum from '@/components/Admin/AdminPostForum.vue'
 export default {
-    layout: 'admin',
+    
     components: {
         AdminPostForum
 

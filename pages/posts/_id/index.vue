@@ -1,12 +1,12 @@
 <template>
     <div class="single-post-page">
         <section class="post">
-            <h1 class="post-title">Title of post</h1>
+            <h1 class="post-title">{{ loadedPost.title }}</h1>
             <div class="post-details">
-                <div class="post-details">Last updated on XXX</div>
-                <div class="post-details">Written by NAME</div>
+                <div class="post-details">Last updated on {{ loadedPost.updatedDate }}</div>
+                <div class="post-details">Written by {{ loadedPost.author }}</div>
             </div>
-            <p class="post-content">Content of the post</p>
+            <p class="post-content">{{ loadedPost.content }}</p>
         </section>
         <section class="post-feedback">
             <p>Let me know what you think about the post, send an email to <a href="mail:to">demilad1998@gmail.com</a></p>
@@ -15,7 +15,21 @@
 </template>
 <script>
 export default {
-    layout: 'admin',
+    asyncData(context, callback) {
+        setTimeout(() => {
+            callback(null, {
+            loadedPosts: {
+                id: "1",
+                title: "First post  (ID: "+ context.params.id +")",
+                previewText: "This is my first post",
+                author: 'Gbemisola', 
+                updatedDate: new Date(),
+                content: 'This is different from previewtext',
+                thumbnail: "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
+                }
+            })
+        }, 1000)
+    }
 }
 </script>
 <style scoped>

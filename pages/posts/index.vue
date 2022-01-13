@@ -9,7 +9,7 @@
  
 import PostList from '@/components/Posts/PostList.vue';
 export default {
-    layout: 'admin',
+    
     components: {
         PostList
         
