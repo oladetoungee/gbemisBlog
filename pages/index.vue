@@ -3,7 +3,7 @@
         <section class="intro">
             <h1>Get my latest blogpost here!</h1>
         </section>
-        <post-list/>
+        <post-list isAdmin/>
 
         
     </div>
@@ -13,6 +13,7 @@ import PostList from '@/components/Posts/PostList.vue';
 
 
 export default {
+    layout: 'admin',
     components: {
         PostList
         

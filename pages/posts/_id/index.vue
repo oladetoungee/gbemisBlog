@@ -13,6 +13,11 @@
         </section>
     </div>
 </template>
+<script>
+export default {
+    layout: 'admin',
+}
+</script>
 <style scoped>
     .single-post-page {
     padding: 30px;
