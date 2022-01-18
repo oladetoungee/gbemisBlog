@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get my latest blogpost here!</h1>
     </section>
-    <post-list :posts="loadedPost" isAdmin />
+    <post-list :posts="loadedPosts" isAdmin />
   </div>
 </template>
 <script>
@@ -13,48 +13,13 @@ export default {
   components: {
     PostList,
   },
-  asyncData(context, callback) {
-      console.log('Async dart')
-      setTimeout(() =>{
-          callback(null, {loadedPost: [
-            {
-            id: "1",
-            title: "First post",
-            previewText: "This is my first post",
-            thumbnail:
-                "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
-            },
-            {
-            id: "2",
-            title: "Second post",
-            previewText: "This is my first post",
-            thumbnail:
-                "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
-            },
-          ]})
-      }, 1500)
-  },
-//   data() {
-//     return {
-//       loadedPost: [
-//         {
-//           id: "1",
-//           title: "First post",
-//           previewText: "This is my first post",
-//           thumbnail:
-//             "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
-//         },
-//         {
-//           id: "2",
-//           title: "Second post",
-//           previewText: "This is my first post",
-//           thumbnail:
-//             "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
-//         },
-//       ],
-//     };
-//   },
-};
+  
+  computed: {
+      loadedPosts() {
+          return this.$store.getters.loadedPosts
+      }
+  }
+}
 </script>
 
 <style scoped>

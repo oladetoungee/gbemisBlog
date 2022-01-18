@@ -1,12 +1,12 @@
 <template>
     <div class="single-post-page">
         <section class="post">
-            <h1 class="post-title">{{ loadedPost.title }}</h1>
+            <h1 class="post-title">{{ loadedPosts.title }}</h1>
             <div class="post-details">
-                <div class="post-details">Last updated on {{ loadedPost.updatedDate }}</div>
-                <div class="post-details">Written by {{ loadedPost.author }}</div>
+                <div class="post-details">Last updated on {{ loadedPosts.updatedDate }}</div>
+                <div class="post-details">Written by {{ loadedPosts.author }}</div>
             </div>
-            <p class="post-content">{{ loadedPost.content }}</p>
+            <p class="post-content">{{ loadedPosts.content }}</p>
         </section>
         <section class="post-feedback">
             <p>Let me know what you think about the post, send an email to <a href="mail:to">demilad1998@gmail.com</a></p>
@@ -15,21 +15,24 @@
 </template>
 <script>
 export default {
-    asyncData(context, callback) {
-        setTimeout(() => {
-            callback(null, {
-            loadedPosts: {
+    
+   asyncData(context, callback) {
+    setTimeout(() => {
+        callback(null, {
+            loadedPosts:  { 
                 id: "1",
-                title: "First post  (ID: "+ context.params.id +")",
+                title: "First post (ID: "+ context.route.params.id +")",
                 previewText: "This is my first post",
-                author: 'Gbemisola', 
+                author: 'Gbemisola Oladetoun',
                 updatedDate: new Date(),
-                content: 'This is different from previewtext',
-                thumbnail: "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
-                }
-            })
-        }, 1000)
-    }
+                content: 'This is my post content',
+                thumbnail: "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",   
+            }             
+        })
+        
+    }, 1500) 
+    
+  },
 }
 </script>
 <style scoped>

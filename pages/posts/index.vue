@@ -1,26 +1,29 @@
 <template>
-    <div>
-        <div class="posts-page">
-           <post-list/>
-        </div>
+  <div>
+    <div class="posts-page">
+      <post-list :posts="loadedPosts" />
     </div>
+  </div>
 </template>
 <script>
- 
-import PostList from '@/components/Posts/PostList.vue';
+import PostList from "@/components/Posts/PostList.vue";
 export default {
-    
-    components: {
-        PostList
-        
-    }
-}
+  components: {
+    PostList,
+  },
+  
+  computed: {
+      loadedPosts() {
+          return this.$store.getters.loadedPosts
+      }
+  }
+  
+};
 </script>
 <style scoped>
-    .posts-page {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
+.posts-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>

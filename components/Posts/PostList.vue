@@ -24,7 +24,7 @@ export default {
        
         isAdmin: {
             type: Boolean,
-            default: true
+            default: false
         },
         posts: {
             type: Array,
@@ -35,6 +35,9 @@ export default {
         //     required: true
         // }
     },
+    mounted() {
+        console.log(this.posts)
+    }
 
 }
 </script>

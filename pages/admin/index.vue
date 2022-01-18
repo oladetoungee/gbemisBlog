@@ -5,7 +5,7 @@
         </section>
         <section class="existing-posts">
             <h1>Existing Posts</h1>
-            <post-list/>
+            <post-list :posts="loadedPosts"/>
         </section>
     </div>
 </template>
@@ -18,6 +18,31 @@ export default {
        PostList,
         AppButton
  },
+  asyncData(context, callback) {
+    console.log('async data')
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts:   [
+        {
+          id: "1",
+          title: "First post",
+          previewText: "This is my first post",
+          thumbnail:
+            "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
+        },
+        {
+          id: "2",
+          title: "Second post",
+          previewText: "This is my first post",
+          thumbnail:
+            "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
+        },
+      ]
+      })
+      
+    }, 1500) 
+    
+  },
     
 }
 </script>
