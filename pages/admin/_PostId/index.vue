@@ -1,7 +1,7 @@
 <template>
     <div class="admin-post-page">
         <section class="update-form">
-            <admin-post-forum :post="loadedPost"/>
+            <admin-post-forum :post="loadedPosts"/>
         </section>
     </div>
 </template>
@@ -15,11 +15,11 @@ export default {
     },
     data () {
         return {
-            loadedPost:{
-                author: 'Gbemisola',
-                title: 'My Post',
-                content: 'Omo, I dey write sha',
-                thumbnailLink: 'https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg'
+            loadedPosts:{
+                author: '',
+                title: '',
+                content: '',
+                thumbnail: ''
 
             }
         }

@@ -14,26 +14,24 @@
     </div>
 </template>
 <script>
-export default {
+  import axios from 'axios'
+    export default {
     
-   asyncData(context, callback) {
-    setTimeout(() => {
-        callback(null, {
-            loadedPosts:  { 
-                id: "1",
-                title: "First post (ID: "+ context.route.params.id +")",
-                previewText: "This is my first post",
-                author: 'Gbemisola Oladetoun',
-                updatedDate: new Date(),
-                content: 'This is my post content',
-                thumbnail: "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",   
-            }             
-        })
+        asyncData(context) {
+            return axios.get('https://gbemisblog-7a042-default-rtdb.firebaseio.com/posts/' + context.params.id + 'json') 
+                .then(res => {
+                    console.log(loadedPosts)
+                    // return {
+                    //     // loadedPosts: res.data
+                        
+                    // }
+                })
+                .catch(e => context.error(e))
         
-    }, 1500) 
+        },
     
-  },
-}
+    
+    }
 </script>
 <style scoped>
     .single-post-page {
