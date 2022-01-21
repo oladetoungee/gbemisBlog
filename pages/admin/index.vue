@@ -18,6 +18,7 @@ export default {
        PostList,
         AppButton
  },
+ 
   asyncData(context, callback) {
     console.log('async data')
     setTimeout(() => {
