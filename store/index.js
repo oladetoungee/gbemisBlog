@@ -56,10 +56,11 @@ const createStore = () => {
                 return axios
                 .put(
                     'https://gbemisblog-7a042-default-rtdb.firebaseio.com/posts/'
-                        + this.$route.params.postId + '.json',
+                        + editedPost.id + '.json',
                         editedPost
                 )
                 .then(res => {
+                    vuexContext.commit('editPost', editedPost)
                     })
                 .catch(e => console.log(e))
             },

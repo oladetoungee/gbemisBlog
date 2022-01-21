@@ -18,32 +18,37 @@ export default {
        PostList,
         AppButton
  },
+ computed: {
+      loadedPosts() {
+          return this.$store.getters.loadedPosts
+      }
+  }
  
-  asyncData(context, callback) {
-    console.log('async data')
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts:   [
-        {
-          id: "1",
-          title: "First post",
-          previewText: "This is my first post",
-          thumbnail:
-            "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
-        },
-        {
-          id: "2",
-          title: "Second post",
-          previewText: "This is my first post",
-          thumbnail:
-            "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
-        },
-      ]
-      })
+  // asyncData(context, callback) {
+  //   console.log('async data')
+  //   setTimeout(() => {
+  //     callback(null, {
+  //       loadedPosts:   [
+  //       {
+  //         id: "1",
+  //         title: "First post",
+  //         previewText: "This is my first post",
+  //         thumbnail:
+  //           "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
+  //       },
+  //       {
+  //         id: "2",
+  //         title: "Second post",
+  //         previewText: "This is my first post",
+  //         thumbnail:
+  //           "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
+  //       },
+  //     ]
+  //     })
       
-    }, 1500) 
+  //   }, 1500) 
     
-  },
+  // },
     
 }
 </script>
