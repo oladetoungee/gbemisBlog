@@ -29,7 +29,9 @@
                 .catch(e => context.error(e))
         
         },
-    
+        head: {
+            title: 'A blog from Gbemi'
+        }
     
     }
 </script>

@@ -9,6 +9,21 @@
         </div>
     </div>
 </template>
+<script>
+import axios from 'axios'
+export default {
+    head: {
+        title: 'About Gbemi'
+    }
+}
+</script>
+
+
+
+<style>
+
+</style>
+
 <style scoped>
     .about-page {
         background-color: burlywood;
