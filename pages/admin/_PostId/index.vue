@@ -17,7 +17,7 @@ export default {
     asyncData(context) {
             return axios
                 .get(
-                    'https://gbemisblog-7a042-default-rtdb.firebaseio.com/posts/'
+                    process.env.baseUrl + '/posts/'
                      + context.params.postId + '.json') 
                 .then(res => {
                     
