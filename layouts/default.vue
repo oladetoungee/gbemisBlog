@@ -10,8 +10,9 @@
     </div>
 </template>
 <script>
-import  TheHeader from "../components/Navigation/TheHeader.vue";
-import  TheSidenav from "../components/Navigation/TheSidenav.vue";
+    
+    import  TheHeader from "../components/Navigation/TheHeader.vue";
+    import  TheSidenav from "../components/Navigation/TheSidenav.vue";
 export default {
     components: {
         TheHeader,

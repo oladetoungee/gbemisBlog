@@ -1,9 +1,9 @@
 <template>
   <div class="admin-auth-page">
     <div class="auth-container">
-      <form>
-        <AppControlInput type="email">E-Mail Address</AppControlInput>
-        <AppControlInput type="password">Password</AppControlInput>
+      <form @submit.prevent="onSubmit">
+        <AppControlInput type="email" v-model="email">E-Mail Address</AppControlInput>
+        <AppControlInput type="password" v-model="password">Password</AppControlInput>
         <AppButton type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</AppButton>
         <AppButton
           type="button"
@@ -20,15 +20,39 @@
 
 
 export default {
-    layout: 'admin',
+    
   name: 'AdminAuthPage',
   layout: 'admin',
   
   data() {
     return {
-      isLogin: true
+      isLogin: true,
+      email: '',
+      password: '',
+      
+    }
+  },
+  methods: {
+    onSubmit() {
+      let authUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +  process.env.fbAPIKey
+      if (!this.isLogin) {
+         authUrl = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + 
+          process.env.fbAPIKey
+      } 
+      this.$axios.$post(authUrl, {
+            email: this.email,
+            password: this.password,
+            returnSecureToken: true
+          
+          }
+        ).then(result => {
+          console.log(result)
+        })
+        .catch(e => console.log(e))
+     
     }
   }
+
 }
 </script>
 

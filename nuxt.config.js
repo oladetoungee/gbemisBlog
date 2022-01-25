@@ -58,10 +58,15 @@ export default {
   },
 
   env: {
-    baseUrl: process.env.BASE_URL || 'https://gbemisblog-7a042-default-rtdb.firebaseio.com/'
+    baseUrl: process.env.BASE_URL || 'https://gbemisblog-7a042-default-rtdb.firebaseio.com/',
+    fbAPIKey: 'AIzaSyAk7DfLoTOsDF7g_eIW4-NnX0BPgaLMKSo' 
+
   },
   transition: {
     name: 'fade',
     mode: 'out-in'
+  },
+  router: {
+    // middleware: 'log'
   }
 } 
