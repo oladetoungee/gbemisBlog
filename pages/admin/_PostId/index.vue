@@ -6,23 +6,20 @@
     </div>
 </template>
 <script>
-import AdminPostForum from '@/components/Admin/AdminPostForum.vue'
-import axios from 'axios'
+
+
 export default {
     
-    components: {
-        AdminPostForum
-
-    },
+    
     asyncData(context) {
-            return axios
-                .get(
+            return context.app.$axios
+                .$get(
                     process.env.baseUrl + '/posts/'
                      + context.params.postId + '.json') 
-                .then(res => {
+                .then(data => {
                     
                     return {
-                        loadedPosts: {...res.data, id: context.params.postId}
+                        loadedPosts: {...data, id: context.params.postId}
                         
                     }
                 })

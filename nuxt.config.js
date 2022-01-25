@@ -21,6 +21,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~plugins/mostused-components.js',
+    '~plugins/date-filter.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,7 +41,10 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.BASE_URL || 'https://gbemisblog-7a042-default-rtdb.firebaseio.com/',
+    credentials: false
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -59,4 +64,4 @@ export default {
     name: 'fade',
     mode: 'out-in'
   }
-}
+} 

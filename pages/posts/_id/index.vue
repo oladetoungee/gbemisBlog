@@ -3,7 +3,7 @@
         <section class="post">
             <h1 class="post-title">{{ loadedPosts.title }}</h1>
             <div class="post-details">
-                <div class="post-details">Last updated on {{ loadedPosts.updatedDate }}</div>
+                <div class="post-details">Last updated on {{ loadedPosts.updatedDate | date }}</div>
                 <div class="post-details">Written by {{ loadedPosts.author }}</div>
             </div>
             <p class="post-content">{{ loadedPosts.content }}</p>
@@ -14,15 +14,16 @@
     </div>
 </template>
 <script>
-  import axios from 'axios'
+  
+
     export default {
     
         asyncData(context) {
-            return axios.get(process.env.baseUrl + '/posts/' + context.params.id + '.json') 
-                .then(res => {
+            return context.app.$axios.$get('/posts/' + context.params.id + '.json') 
+                .then(data => {
                     // console.log(loadedPosts)
                     return {
-                        loadedPosts: res.data
+                        loadedPosts: data
                         
                     }
                 })

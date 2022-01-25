@@ -7,13 +7,10 @@
 </template>
 <script>
 import axios from 'axios'
-import AdminPostForum from '../../../components/Admin/AdminPostForum.vue';
+
 export default {
     layout: 'admin',
-    components: {
-        
-        AdminPostForum,
-    },
+    
     methods: {
        onSubmitted(postData) {
            
