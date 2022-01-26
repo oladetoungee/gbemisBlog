@@ -9,7 +9,8 @@
 
 
 export default {
-    
+    layout: 'admin',
+    middleware: 'auth',
     
     asyncData(context) {
             return context.app.$axios
