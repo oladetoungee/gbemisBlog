@@ -1,4 +1,7 @@
+import bodyParser from "body-parser";
+
 export default {
+ 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'gbemiblog',
@@ -66,7 +69,11 @@ export default {
     name: 'fade',
     mode: 'out-in'
   },
-  router: {
-    // middleware: 'log'
-  }
+  // router: {
+  //   // middleware: 'log'
+  // }
+  serverMiddleware: [
+    bodyParser.json(),
+    '~/api'
+  ]              
 } 

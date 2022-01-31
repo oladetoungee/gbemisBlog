@@ -2,6 +2,7 @@
     <div class="admin-page">
         <section class="new-post">
             <app-button @click="$router.push('/admin/new-post/')">Create Post</app-button>
+            <app-button @click="onLogout">Logout</app-button>
         </section>
         <section class="existing-posts">
             <h1>Existing Posts</h1>
@@ -13,39 +14,21 @@
 
 export default {
     layout: 'admin',
-    middleware: 'auth',
+    middleware: ['check-auth', 'auth'],
   
  computed: {
       loadedPosts() {
           return this.$store.getters.loadedPosts
       }
+  },
+  methods: {
+      onLogout() {
+          this.$store.dispatch('logout')
+           this.$router.push('/admin/auth')
+      }
   }
  
-  // asyncData(context, callback) {
-  //   console.log('async data')
-  //   setTimeout(() => {
-  //     callback(null, {
-  //       loadedPosts:   [
-  //       {
-  //         id: "1",
-  //         title: "First post",
-  //         previewText: "This is my first post",
-  //         thumbnail:
-  //           "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
-  //       },
-  //       {
-  //         id: "2",
-  //         title: "Second post",
-  //         previewText: "This is my first post",
-  //         thumbnail:
-  //           "https://store.hp.com/app/assets/images/uploads/prod/how-to-become-an-information-technology-specialist160684886950141.jpg",
-  //       },
-  //     ]
-  //     })
-      
-  //   }, 1500) 
-    
-  // },
+  
     
 }
 </script>
